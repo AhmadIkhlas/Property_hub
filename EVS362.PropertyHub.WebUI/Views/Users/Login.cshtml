@@ -1,0 +1,42 @@
+﻿@model LoginModel
+@{
+    ViewData["Title"] = "Login";
+
+}
+
+<div style="margin-top:75px">
+    <section class="col-lg-6 col-lg-offset-3">
+        <section class="panel panel-primary">
+            <div class="panel-heading"><div class="panel-title"><span class="glyphicon glyphicon-circle-arrow-right"></span> @ViewData["Title"] </div></div>
+            <div class="panel-body">
+                <form method="post" asp-controller="users" asp-action="login">
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-user"></span> </span>
+                            <input asp-for="LoginId" type="text" class="form-control" placeholder="Login Id" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="input-group">
+                            <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span> </span>
+                            <input asp-for="Password" type="password" class="form-control" placeholder="Password" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary btn-sm"><span class="glyphicon glyphicon-log-in"></span>  Login </button>
+                        <button type="reset" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-repeat"></span> Reset </button>
+                    </div>
+                    <div class="form-group">
+                        <div class="checkbox">
+                            <label><input asp-for="RemeberMe" type="checkbox" /> Remember me</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-footer">
+                <a asp-action="signup" asp-controller="users"><span class="glyphicon glyphicon-user"></span> Sign Up</a>
+                <a asp-action="recoverpassword" asp-controller="users" class="pull-right"><span class="glyphicon glyphicon-lock"></span> Forget Password</a>
+            </div>
+        </section>
+    </section>
+</div>

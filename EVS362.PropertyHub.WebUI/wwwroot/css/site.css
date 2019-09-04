@@ -1,0 +1,78 @@
+﻿body {
+    color: #909090;
+}
+
+.bg-primary a {
+    color: #ffffff;
+}
+
+    .bg-primary a:visited {
+        color: #ffffff;
+    }
+
+.mytab-pane {
+    padding: 15px;
+    border-left: solid 1px #ddd;
+    border-right: solid 1px #ddd;
+    border-bottom: solid 1px #ddd;
+}
+
+.navbar-userimg {
+    width: 20px;
+    height: 20px;
+}
+/****** Style for property summary view *******/
+.psum-item {
+    display: block;
+    margin-top: 30px;
+    border: solid 1px #d0d0d0;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.psum-image {
+}
+
+.psum-info {
+    text-align: left;
+}
+
+.psum-item a {
+    text-decoration: none;
+    color: #909090;
+}
+
+    .psum-item a:visited {
+        text-decoration: none;
+        color: #909090;
+    }
+
+
+
+
+.psum-item h2 {
+    color: #489636;
+    padding: 5px 0px;
+    margin: 5px 0px;
+    font-size: 125%;
+    font-weight: normal;
+}
+
+.psum-item-fullrow {
+    padding: 2px 0px;
+    margin: 2px 0px;
+}
+
+.psum-item-leftcol {
+    padding: 2px 0px;
+    margin: 2px 0px;
+    float: left;
+    width: 50%;
+}
+
+.psum-item-rightcol {
+    padding: 2px 0px;
+    margin: 2px 0px;
+    float: right;
+    width: 50%;
+}

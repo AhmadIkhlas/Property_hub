@@ -1,0 +1,24 @@
+﻿@model CityModel
+
+@{
+    List<SelectListItem> items = ViewBag.items;
+}
+
+
+<form asp-controller="City" asp-action="edit" method="post">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-edit"></span> </span>
+            <input asp-for="Name" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-map-marker"></span> </span>
+            <select asp-for="Province.Id" asp-items="@items" class="form-control"></select>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp; Save</button>
+    </div>
+</form>

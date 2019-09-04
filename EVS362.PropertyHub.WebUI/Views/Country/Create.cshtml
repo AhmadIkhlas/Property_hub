@@ -1,0 +1,21 @@
+﻿@model EVS362.PropertyHub.WebUI.Models.CountryModel
+
+
+<form asp-controller="Country" asp-action="create" method="post">
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-edit"> Code</span></span>
+            <input asp-for="Code" type="text" class="form-control" />
+        </div>
+    </div>
+     <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-edit">Name</span> </span>
+            <input asp-for="Name" type="text" class="form-control" />
+        </div>
+    </div>
+    
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp; Add</button>
+    </div>
+</form>

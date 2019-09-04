@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ProvinceModel>
+
+@{
+    ViewData["Title"] = "Provinces Manager";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="modal fade" id="mydialog" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-primary">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span></button>
+                <h4 id="mydialog-title" class="modal-title"></h4>
+            </div>
+            <div id="mydialog-body" class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
+
+<table class="table table-bordered">
+    <thead class="bg-primary">
+        <tr>
+            <th colspan="4">
+                <span>@ViewData["Title"] [<a id="addnewlink" href="/Provinces/create" data-caption="Add New Neighbourhood Area"> Add New </a> ]</span>
+
+            </th>
+        </tr>
+        <tr>
+            <th class="col-lg-5 col-md-5 col-sm-6 col-xs-8">
+                <span>Provinces Name</span>
+            </th>
+            <th class="col-lg-3 col-md-3 col-sm-3 hidden-xs">Country id</th>
+            <th class="col-lg-4 col-md-4 col-sm-3 col-xs-4">Actions</th>
+        </tr>
+    </thead>
+    <tbody id="tablebody">
+        @foreach (var n in Model)
+        {
+            <tr>
+                <td class="col-lg-5 col-md-5 col-sm-6 col-xs-8">
+                    @n.Name
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-3 hidden-xs">
+                    @n.Id
+                </td>
+                <td class="col-lg-3 col-md-3 col-sm-3 col-xs-4">
+
+                    <a href="/Provinces/Edit/@n.Id" class="dg-btnedit btn btn-xs btn-warning" data-caption="Edit Country"><span class="glyphicon glyphicon-edit"></span></a>
+                    <a href="/Provinces/Delete/@n.Id" class="dg-btndelete btn btn-xs btn-danger" data-caption="Do you want to delete this record?"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+
+
+@section Scripts{
+    <script type="text/javascript">
+        $("#addnewlink,.dg-btnedit,.dg-btndelete").click(function (event) {
+            event.preventDefault();
+            var myurl = $(this).attr("href");
+            var caption = $(this).data("caption");
+            $.ajax(
+                {
+                    url: myurl
+                }
+            ).done(function (result) {
+                $("#mydialog-title").html(caption);
+                $("#mydialog-body").html(result);
+                $("#mydialog").modal();
+            });
+        });
+        $("#searchtext").keyup(function () {
+            var keyword = $(this).val();
+            $.ajax(
+                {
+                    url: "/neighbourhood/filter?key=" + keyword
+                }
+            ).done(function (result) {
+                $("#tablebody").html(result);
+            });
+        });
+
+    </script>
+}

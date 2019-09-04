@@ -1,0 +1,26 @@
+﻿@model CountryModel
+
+@{
+    List<SelectListItem> cities = ViewBag.Cities;
+}
+
+
+<form asp-controller="Country" asp-action="edit" method="post">
+    <div class="form-group">
+        <input type="hidden" asp-for="id" />
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-edit"></span> </span>
+            <input asp-for="Name" type="text" class="form-control" />
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="input-group">
+            <span class="input-group-addon"><span class="glyphicon glyphicon-edit"></span> </span>
+            <input asp-for="Code" type="text" class="form-control" />
+        </div>
+    </div>
+  
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-save"></span>&nbsp; Save</button>
+    </div>
+</form>

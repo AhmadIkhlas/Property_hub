@@ -1,0 +1,14 @@
+﻿@model CountryModel
+<form asp-controller="Country" asp-action="delete" method="post">
+    <input type="hidden" asp-for="id" />
+    <div class="form-group">
+        <label>Country Name:</label><span>@Model.Name</span>
+    </div>
+    <div class="form-group">
+        <label>Country Code:</label><span>@Model.Code</span>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-danger" type="submit"><span class="glyphicon glyphicon-trash"></span>&nbsp; Yes</button>
+        <button class="btn btn-success" type="button" data-dismiss="modal"><span class="glyphicon glyphicon-circle-arrow-left"></span>&nbsp; No</button>
+    </div>
+</form>
